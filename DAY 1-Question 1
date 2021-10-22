@@ -1,0 +1,33 @@
+/*To find array is distinct or not distinct*/
+#include<stdio.h>
+#include<stdlib.h>
+int check(int n,int a[])
+{
+    for(int i=0;i<n;i++)
+    {  for(int j=i+1;j<n;j++)
+        {
+           if(a[i]==a[j])
+              return 0;
+               
+        }
+    }
+    return 1;
+}
+
+
+void main()
+{
+     int *a;
+     int n;
+     printf("ENTER THE NUMBER OF GROUP NUMBERS\n");
+     scanf("%d",&n);
+     a=(int*)malloc(sizeof(int)*n);
+     printf("ENTER THE GROUP NUMBERS\n");
+     for(int i=0;i<n;i++)
+         scanf("%d",&a[i]);
+     int c=check(n,a);
+     if(c==1)
+        printf("Array distinct\n");
+     else
+       printf("Array not distinct\n");
+}
