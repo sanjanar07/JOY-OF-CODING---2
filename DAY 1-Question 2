@@ -1,0 +1,39 @@
+/* To find the frequency of elements in the array */
+#include<stdio.h>
+
+void main()
+{
+     
+     int n,count=1;
+     printf("ENTER THE NUMBER OF GROUP NUMBERS\n");
+     scanf("%d",&n);
+  
+     int visit=-1;
+     int a[n];
+     printf("ENTER THE GROUP NUMBERS\n");
+     for(int i=0;i<n;i++)
+         scanf("%d",&a[i]);
+    
+   int frequency[n];
+     for(int i=0;i<n;i++)
+     {       
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[i]==a[j])
+            {
+                count++;
+                frequency[j]=visit;
+            }
+        }
+        if(frequency[i]!=visit)
+        {
+            frequency[i]=count;
+            count=1;
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+      if(frequency[i]!=visit)
+         printf("%d's : %d\n",a[i],frequency[i]);
+    }
+}
