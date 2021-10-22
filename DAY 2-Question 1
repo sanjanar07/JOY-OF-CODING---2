@@ -1,0 +1,33 @@
+/* To add distinct elements to an array*/
+#include<stdio.h>
+void main()
+{
+	int a[8],j=0,b[8],flag=1;
+	printf("ENTER THE BALLOON NUMBERS GIVEN TO SANVI\n");
+        for(int i=0;i<8;i++)
+           scanf("%d",&a[i]);
+        b[j]=a[0];
+        for(int i=1;i<8;i++)
+        {
+	   
+           for(int k=0;k<=j;k++)
+           {
+                if(a[i]==b[k])           
+                {
+                       flag=0;
+                       break;
+                }   
+           }
+           if(flag==0)
+              continue;
+           else
+            {
+              j+=1;
+              b[j]=a[i];
+              flag=1;
+            }
+        }
+        for(int i=0;i<=j;i++)
+           printf("%d",b[i]);
+}      
+     
