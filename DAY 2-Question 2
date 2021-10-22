@@ -1,0 +1,30 @@
+/*To find the indices where the numbers add up to the given sum*/
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    int n,K;
+    printf("ENTER THE SIZE OF THE ARRAY-");
+    scanf("%d",&n);
+    int a[n];
+    printf("ENTER THE ARRAY\n");
+    for(int i=0;i<n;i++)
+    {
+       scanf("%d",&a[i]);
+    }
+    printf("ENTER THE SUM\n");
+    scanf("%d",&K);
+    
+    for(int i=0;i<n;i++)
+    {
+      for(int j=i+1;j<n;j++)
+      {
+         if(a[i]+a[j]==K)
+         {
+            printf("Indices are found at %d and %d\n",i,j);
+            exit(0);
+         }    
+      }
+    }
+    printf("No indices found");
+}
