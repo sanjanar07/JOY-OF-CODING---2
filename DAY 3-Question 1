@@ -1,0 +1,29 @@
+/*Rotate matrix 90 degree anticlockwise*/
+
+#include <stdio.h>
+
+void main() 
+{
+  int r, c;
+  printf("Enter rows and columns: ");
+  scanf("%d %d", &r, &c);
+  int m[r][c],transpose[r][c];
+  
+  printf("\nEnter matrix elements which represents image:\n");
+  for (int i = 0; i < r;i++)
+     for (int j = 0; j < c;j++)
+        scanf("%d", &m[i][j]);
+  
+  
+  printf("Rotated matrix representing better view\n");
+    for(int i=c-1;i>=0;i--)
+    {
+        for(int j=0;j<r;j++)
+        {
+            printf("%d ",m[j][i]);
+        }
+        printf("\n");
+    }
+    
+    
+}
