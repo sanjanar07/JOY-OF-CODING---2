@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void main()
+{
+         char s[500],d[500];
+          
+          printf("Enter the two strings\n");
+          scanf("%[^\n]%*c",s);
+          scanf("%[^\n]%*c",d);
+          
+          if(strlen(s) != strlen(d))
+          {
+             printf("Str 2 is not rotated version of str1\n");
+             exit(0);
+          }
+          
+          strcat(s,s);
+          
+          if(strstr(s,d)!=NULL)
+            printf("Str 2 is rotated version of Str1\n");
+          else
+            printf("Str 2 is not rotated version of Str1\n");
+}
