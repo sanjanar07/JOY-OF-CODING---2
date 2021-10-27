@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+void main()
+{
+ 	          char s[500];
+            printf("Enter String:");
+            scanf("%[^\n]%*c",s);
+            int count[26]={0};
+            int n=strlen(s);
+            for(int i=0;i<n;i++)
+            {
+                  if(s[i]!=' ')
+                  {
+                         count[s[i]-'a']++;
+                   }
+             }
+               int max=0;
+               char res;
+               for(int i=0;i<26;i++)
+               {
+                          if(count[i]>=max)
+                          {
+                                 max=count[i];
+                                 res=i+'a';
+                           }
+                }
+                printf("Maximum repeated character : %c and %d times\n",res,max);
+}
