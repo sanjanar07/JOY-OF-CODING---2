@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+# define SIZE 5
+
+struct book
+{	int book_id;
+    char book_name[10];
+    char book_author[10];
+    float book_price;
+};
+typedef struct book sbk;
+
+void push(sbk bk,int *top,sbk *p)
+{
+    (*top)++;
+    p[*top]=bk;
+}
+
+void pop(int *top,sbk *p)
+{
+    printf("INFORMATION OF THE DELETED BOOK IS-\n");
+    sbk book;
+    book=p[(*top)]; 
+    printf("%d  %s  %s  %f \n",book.book_id,book.book_name,book.book_author,book.book_price);
+    (*top)--;
+
+}
+
+void display(int top,sbk *p)
+{
+    	int i,j;
+    	for(i=top;i>=0;i--)
+        {
+            printf("%d          %s          %s          %f \n",(p+i)->book_id,(p+i)->book_name,(p+i)->book_author,(p+i)->book_price);
+        }
+        printf("\n");
+}
+
+void main()
+{
+    sbk *p;
+    p=(sbk*)malloc(sizeof(sbk)*5);
+    sbk bk;
+    int ch;int top=-1;
+    for(;;)
+    {
+        printf("ENTER CHOICE\n1.INSERT BOOK\n2.REMOVE BOOK\n3.DISPLAY THE BOOK DETAILS EXISTING\n4.EXIT\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:if(top==SIZE-1)
+                    {
+                        printf("OOPS!!BOX IS FULL!CAN'T ADD\n");
+                        break;
+                    }
+                    printf("Enter the book_id,book name,book author,book price\n");
+                    scanf("%d %s %s %f",&bk.book_id,bk.book_name,bk.book_author,&bk.book_price);
+                    push(bk,&top,p);
+                    break;
+            case 2:if(top==-1)
+                    {
+                        printf("OOPS!!BOX IS EMPTY\n");
+                        break;
+                    }
+                    pop(&top,p);
+                    break;
+            case 3:if(top==-1)
+                    {
+                        printf("OOPS!!BOX IS EMPTY\n");
+                        break;
+                    }
+                    printf("~~~~INFORMATION ABOUT THE BOOKS IN THE BOX~~~~\n");
+                    display(top,p);
+                    break;
+            case 4:exit(0);
+            }
+       }
+   }
+   
